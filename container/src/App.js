@@ -12,6 +12,7 @@ const generateClassName = createGenerateClassName({
 
 const MarketingAppLazy = lazy(() => import('./components/MarketingApp'));
 const AuthAppLazy = lazy(() => import('./components/AuthApp'));
+const DashboardLazy = lazy(() => import('./components/Dashboard'));
 
 const App = () => {
   const [isSignedIn, setSignedIn] = useState(false);
@@ -28,6 +29,7 @@ const App = () => {
               <Route path="/auth">
                 <AuthAppLazy onSignIn={() => setSignedIn(true)} />
               </Route>
+              <Route path="/dashboard" component={DashboardLazy} />
               <Route path="/" component={MarketingAppLazy} />
             </Switch>
           </Suspense>
